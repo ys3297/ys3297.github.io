@@ -4,14 +4,13 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
 # This is Yi Sun's website for homework 4
 
 May be updated later, or never.
 
-## brief introduction
+## Brief introduction
 
 A second-year M.P.H. candidate in Epidemiology at Mailman School of Public Health, Columbia University.
 
