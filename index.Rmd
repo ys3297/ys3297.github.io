@@ -6,7 +6,7 @@ output:
     toc_float: true
 ---
 
-# This is Yi Sun's website for homework 4
+# Yi Sun's website for homework 4
 
 May be updated later, or never.
 
