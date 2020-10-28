@@ -1,5 +1,5 @@
 ---
-title: "Yi Sun - Resume"
+title: "About me"
 output: 
   html_document:
     toc: true
@@ -7,7 +7,7 @@ output:
     theme: cerulean
 ---
 
-# Resume
+![](./Sun_Yi-Resume.jpg)
 
 
 

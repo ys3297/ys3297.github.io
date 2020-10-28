@@ -9,6 +9,8 @@ navbar:
       href: mailto:<neilsun2333@gmail.com>
     - icon: fa-github fa-lg
       href: http://github.com/ys3297/
+    - icon: fa-school fa-lg
+      href: https://www.cuimc.columbia.edu/
 output:
   html_document:
     theme: cerulean
