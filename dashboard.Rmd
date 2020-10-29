@@ -18,7 +18,6 @@ data(rest_inspec)
 
 nyc_inspec = 
   rest_inspec %>% 
-  sample_n(1000) %>% 
   select("camis", "boro", "violation_code", "critical_flag", "score", "grade")
 ```
 
