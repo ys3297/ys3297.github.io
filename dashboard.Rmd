@@ -13,12 +13,18 @@ library(p8105.datasets)
 library(plotly)
 ```
 
-```{r load, include=FALSE}
-data(rest_inspec)
+```{r load and manipulate, include=FALSE}
+data("instacart")
 
-nyc_inspec = 
-  rest_inspec %>% 
-  select("camis", "dba", "boro", "street", "violation_code", "critical_flag", "score", "grade", "inspection_date")
+dow_df = 
+  tibble(
+    order_dow = c(0:6),
+    day_of_week = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+  )
+
+instacart = 
+  instacart %>% 
+  left_join(dow_df, by = "order_dow")
 ```
 
 
@@ -28,7 +34,17 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-
+instacart %>% 
+  group_by(order_dow, day_of_week, order_hour_of_day) %>% 
+  summarize(order_count = n_distinct(order_id)) %>% 
+  mutate(
+    day_of_week = fct_reorder(day_of_week, order_dow),
+    text_label = str_c("Hour of day: ", order_hour_of_day, "\nNumber of orders: ", order_count)
+  ) %>% 
+  plot_ly(
+    y = ~order_count, x = ~order_hour_of_day, color = ~day_of_week,
+    type = "scatter", mode = "marker", colors = "viridis", text = ~text_label, alpha = .5
+    )
 ```
 
 Column {data-width=350}
