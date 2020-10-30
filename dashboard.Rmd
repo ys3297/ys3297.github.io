@@ -18,7 +18,7 @@ data(rest_inspec)
 
 nyc_inspec = 
   rest_inspec %>% 
-  select("dba", "boro", "violation_code", "critical_flag", "score", "grade")
+  select("camis", "dba", "boro", "violation_code", "critical_flag", "score", "grade", "inspection_date")
 ```
 
 
