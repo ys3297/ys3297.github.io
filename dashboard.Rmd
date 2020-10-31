@@ -34,7 +34,8 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-instacart %>% 
+order_by_hour = 
+  instacart %>% 
   group_by(order_dow, day_of_week, order_hour_of_day) %>% 
   summarize(order_count = n_distinct(order_id)) %>% 
   mutate(
@@ -43,8 +44,9 @@ instacart %>%
   ) %>% 
   plot_ly(
     y = ~order_count, x = ~order_hour_of_day, color = ~day_of_week,
-    type = "scatter", mode = "marker", colors = "viridis", text = ~text_label, alpha = .5
-    )
+    type = "scatter", mode = "markers+lines", colors = "viridis", text = ~text_label, alpha = .5)
+
+order_by_hour
 ```
 
 Column {data-width=350}
