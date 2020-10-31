@@ -55,7 +55,20 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
+item_by_department = 
+  instacart %>% 
+  count(department) %>% 
+  mutate(
+    rank = min_rank(desc(n)),
+    department = fct_reorder(department, n)
+  ) %>% 
+  filter(rank <= 10) %>% 
+  plot_ly(
+    y = ~n, x = ~department, color = ~department,
+    type = "bar", colors = "viridis"
+  )
 
+item_by_department
 ```
 
 ### Chart C
