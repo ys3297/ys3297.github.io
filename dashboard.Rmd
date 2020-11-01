@@ -100,7 +100,7 @@ hour_by_top_item =
     type = "box", colors = "viridis"
   ) %>% 
   layout(
-    title = "Distribution of the ordered hour of the day for each top 10 best-selling items",
+    title = "Distribution of the ordered hour of the day for each top 10 best-selling item",
     xaxis = list(title = "Product name"),
     yaxis = list(title = "Ordered hour of the day")
   )
