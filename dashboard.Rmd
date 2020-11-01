@@ -31,7 +31,7 @@ instacart =
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart A
+### Number of orders by hour for each day of the week
 
 ```{r}
 order_by_hour = 
@@ -58,7 +58,7 @@ order_by_hour
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart B {data-height=400}
+### Number of items by top 10 department {data-height=450}
 
 ```{r}
 item_by_department = 
@@ -83,7 +83,7 @@ item_by_department =
 item_by_department
 ```
 
-### Chart C {data-height=600}
+### Ordered hour distribution for each top 10 item {data-height=550}
 
 ```{r}
 top_10_items = 
