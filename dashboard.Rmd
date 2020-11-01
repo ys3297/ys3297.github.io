@@ -28,7 +28,7 @@ instacart =
 ```
 
 
-Column {data-width=650}
+Column {data-width=500}
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -55,10 +55,10 @@ order_by_hour =
 order_by_hour
 ```
 
-Column {data-width=350}
+Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart B
+### Chart B {data-height=400}
 
 ```{r}
 item_by_department = 
@@ -82,7 +82,7 @@ item_by_department =
 item_by_department
 ```
 
-### Chart C
+### Chart C {data-height=600}
 
 ```{r}
 top_10_items = 
