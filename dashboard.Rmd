@@ -66,12 +66,13 @@ item_by_department =
   count(department) %>% 
   mutate(
     dep_rank = min_rank(desc(n)),
-    department = fct_reorder(department, n)
+    department = fct_reorder(department, n),
+    text_label = str_c("Department: ", department, "\nNumber of items ordered: ", n)
   ) %>% 
   filter(dep_rank <= 10) %>% 
   plot_ly(
     y = ~n, x = ~department, color = ~department,
-    type = "bar", colors = "viridis"
+    type = "bar", colors = "viridis", text = ~text_label
   ) %>% 
   layout(
     title = "Number of items ordered from each top 10 department with most items sold",
