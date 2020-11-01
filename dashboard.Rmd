@@ -3,7 +3,7 @@ title: "Dashboard for Instacart Data"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
-    vertical_layout: fill
+    vertical_layout: scroll
 ---
 
 ```{r setup, include=FALSE}
@@ -27,9 +27,6 @@ instacart =
   left_join(dow_df, by = "order_dow")
 ```
 
-
-Column {data-width=500}
------------------------------------------------------------------------
 
 ### Number of orders by hour for each day of the week
 
@@ -55,10 +52,8 @@ order_by_hour =
 order_by_hour
 ```
 
-Column {data-width=500}
------------------------------------------------------------------------
 
-### Number of items by top 10 department {data-height=450}
+### Number of items by top 10 department
 
 ```{r}
 item_by_department = 
@@ -75,7 +70,7 @@ item_by_department =
     type = "bar", colors = "viridis", text = ~text_label
   ) %>% 
   layout(
-    title = "Number of items ordered from each top 10 department with most items sold",
+    title = "Number of items ordered from each top 10 department with most items sold (1-10 from the right)",
     xaxis = list(title = "Department"),
     yaxis = list(title = "Number of items")
   )
@@ -83,7 +78,8 @@ item_by_department =
 item_by_department
 ```
 
-### Ordered hour distribution for each top 10 item {data-height=550}
+
+### Ordered hour distribution for each top 10 item
 
 ```{r}
 top_10_items = 
@@ -101,7 +97,7 @@ hour_by_top_item =
     type = "box", colors = "viridis"
   ) %>% 
   layout(
-    title = "Distribution of the ordered hour of the day for each top 10 best-selling item",
+    title = "Distribution of the ordered hour of the day for each top 10 best-selling item (1-10 from the left)",
     xaxis = list(title = "Product name"),
     yaxis = list(title = "Ordered hour of the day")
   )
