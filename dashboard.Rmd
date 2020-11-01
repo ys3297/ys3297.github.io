@@ -98,7 +98,7 @@ hour_by_top_item =
   ) %>% 
   layout(
     title = "Distribution of the ordered hour of the day for each top 10 best-selling item (1-10 from the left)",
-    xaxis = list(title = "Product name"),
+    xaxis = list(title = list(text = "Product name", standoff = 2)),
     yaxis = list(title = "Ordered hour of the day")
   )
 
