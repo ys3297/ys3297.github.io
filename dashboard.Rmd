@@ -37,7 +37,7 @@ order_by_hour =
   summarize(order_count = n_distinct(order_id)) %>% 
   mutate(
     day_of_week = fct_reorder(day_of_week, order_dow),
-    text_label = str_c("Hour of day: ", order_hour_of_day, "\nNumber of orders: ", order_count)
+    text_label = str_c("Hour of the day: ", order_hour_of_day, "\nNumber of orders: ", order_count)
   ) %>% 
   plot_ly(
     y = ~order_count, x = ~order_hour_of_day, color = ~day_of_week,
@@ -45,7 +45,7 @@ order_by_hour =
     ) %>% 
   layout(
     title = "Number of orders made in each hour of the day for each day of the week",
-    xaxis = list(title = "Order hour of the day"),
+    xaxis = list(title = "Hour of the day"),
     yaxis = list(title = "Number of orders")
   )
 
