@@ -59,10 +59,10 @@ item_by_department =
   instacart %>% 
   count(department) %>% 
   mutate(
-    rank = min_rank(desc(n)),
+    dep_rank = min_rank(desc(n)),
     department = fct_reorder(department, n)
   ) %>% 
-  filter(rank <= 10) %>% 
+  filter(dep_rank <= 10) %>% 
   plot_ly(
     y = ~n, x = ~department, color = ~department,
     type = "bar", colors = "viridis"
@@ -74,6 +74,21 @@ item_by_department
 ### Chart C
 
 ```{r}
+top_10_items = 
+  instacart %>% 
+  count(product_name) %>% 
+  mutate(item_rank = min_rank(desc(n))) %>% 
+  filter(item_rank <= 10)
 
+hour_by_top_item = 
+  instacart %>% 
+  inner_join(top_10_items, by = "product_name") %>% 
+  mutate(product_name = fct_reorder(product_name, item_rank)) %>% 
+  plot_ly(
+    y = ~order_hour_of_day, x = ~product_name, color = ~product_name,
+    type = "box", colors = "viridis"
+  )
+
+hour_by_top_item
 ```
 
