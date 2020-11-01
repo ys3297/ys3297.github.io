@@ -1,5 +1,5 @@
 ---
-title: "Dashboard"
+title: "Dashboard for Instacart Data"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -44,7 +44,13 @@ order_by_hour =
   ) %>% 
   plot_ly(
     y = ~order_count, x = ~order_hour_of_day, color = ~day_of_week,
-    type = "scatter", mode = "markers+lines", colors = "viridis", text = ~text_label, alpha = .5)
+    type = "scatter", mode = "markers+lines", colors = "viridis", text = ~text_label, alpha = .5
+    ) %>% 
+  layout(
+    title = "Number of orders made in each hour of the day for each day of the week",
+    xaxis = list(title = "Order hour of the day"),
+    yaxis = list(title = "Number of orders")
+  )
 
 order_by_hour
 ```
@@ -66,6 +72,11 @@ item_by_department =
   plot_ly(
     y = ~n, x = ~department, color = ~department,
     type = "bar", colors = "viridis"
+  ) %>% 
+  layout(
+    title = "Number of items ordered from each top 10 department with most items sold",
+    xaxis = list(title = "Department"),
+    yaxis = list(title = "Number of items")
   )
 
 item_by_department
@@ -87,6 +98,11 @@ hour_by_top_item =
   plot_ly(
     y = ~order_hour_of_day, x = ~product_name, color = ~product_name,
     type = "box", colors = "viridis"
+  ) %>% 
+  layout(
+    title = "Distribution of the ordered hour of the day for each top 10 best-selling items",
+    xaxis = list(title = "Product name"),
+    yaxis = list(title = "Ordered hour of the day")
   )
 
 hour_by_top_item
